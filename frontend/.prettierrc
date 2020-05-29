@@ -1,4 +1,21 @@
-{
-  "semi": false,
-  "singleQuote": true
-}
+trailingComma: all
+printWidth: 80
+tabWidth: 2
+useTabs: false
+semi: false
+bracketSpacing: true
+parser: typescript
+singleQuote: true
+requirePragma: false
+arrowParens: always
+overrides:
+- files: "*.vue"
+  options:
+    parser: vue
+    printWidth: 80
+    arrowParens: always
+- files: "*.pcss"
+  options:
+    parser: css
+    singleQuote: false
+    printWidth: 120

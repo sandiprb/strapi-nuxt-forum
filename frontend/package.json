@@ -8,17 +8,19 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/pwa": "^3.0.0-0"
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.7",
     "prettier": "^1.16.4"
   }
 }
