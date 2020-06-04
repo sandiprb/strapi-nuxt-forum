@@ -8,12 +8,18 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate"
   },
   "dependencies": {
+    "@chakra-ui/nuxt": "^0.0.3",
+    "@nuxt/components": "^0.3.3",
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/emotion": "^0.0.1",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.0.0"
+    "axios": "^0.19.2",
+    "lodash": "^4.17.15",
+    "nuxt": "^2.12.2"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",

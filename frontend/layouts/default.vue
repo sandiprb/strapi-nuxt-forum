@@ -1,8 +1,19 @@
 <template>
-  <div>
-            <nuxt />
-  </div>
+  <CThemeProvider>
+    <nuxt />
+  </CThemeProvider>
 </template>
+
+
+<script>
+import { CThemeProvider } from '@chakra-ui/vue'
+export default {
+  name: 'AuthCallback',
+  props: {},
+
+  components: {CThemeProvider}
+}
+</script>
 
 <style>
 html {

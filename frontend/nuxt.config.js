@@ -19,6 +19,8 @@ export default {
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
+
+  components: true,
   /*
   ** Global CSS
   */
@@ -35,6 +37,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Nuxt.js modules
@@ -43,12 +46,26 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@chakra-ui/nuxt',
+    '@nuxtjs/emotion',
   ],
+   /**
+   * Add extend the plugin options under the `chakra` key.
+   **/
+  chakra: {
+    extendTheme: {
+      colors: {
+        brand: { /* ... */ }
+      }
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: process.env.API_URL,
+    retry: { retries: 1 },
   },
   /*
   ** Build configuration
