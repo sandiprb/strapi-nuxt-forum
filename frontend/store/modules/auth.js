@@ -1,8 +1,6 @@
 import axios from 'axios'
-import merge from 'lodash/merge'
-import pick from 'lodash/pick'
-import assign from 'lodash/assign'
 import { URLS } from '~/constants'
+import { isValidJwt } from '~/utils/auth'
 
 const initialState = () => ({
   jwt: null,
@@ -10,21 +8,23 @@ const initialState = () => ({
     id: null,
     username: null,
     email: null,
-    provider: null,
-    confirmed: true,
-    blocked: null,
-    created_at: null,
-    updated_at: null,
   },
 })
 
 const state = initialState
 
-const getters = {}
+const getters = {
+  isAuthenticated(state) {
+    if(!state.jwt) return
+    return isValidJwt(state.jwt)
+  },
+}
 
 const mutations = {
-  setState(state, data) {
-    assign(state, pick(data, keys(state)))
+  setState(state, { jwt, user = {} }) {
+    state.jwt = jwt
+    const { id, username, email } = user
+    Object.assign(state.user, { id, username, email })
   },
 }
 

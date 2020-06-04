@@ -18,6 +18,8 @@
     "@nuxtjs/emotion": "^0.0.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "axios": "^0.19.2",
+    "date-fns": "^2.14.0",
+    "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15",
     "nuxt": "^2.12.2"
   },

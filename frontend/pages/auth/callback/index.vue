@@ -11,9 +11,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { CSpinner } from '@chakra-ui/vue'
 import { URLS } from '../../../constants'
-import axios from "axios";
+import axios from 'axios'
 export default {
   name: 'AuthCallback',
   props: {},
@@ -22,17 +23,40 @@ export default {
 
   data: () => ({}),
 
-  methods: {
-    async getToken(){
-      this.$store.dispatch('auth/socialLoginCallback', {
-        provider: 'google', params: this.$route.query
-      })
-    }
+  computed: {
+    ...mapGetters({
+      isAuthenticated: 'auth/isAuthenticated',
+    }),
   },
 
-  mounted(){
+  watch: {
+    isAuthenticated(val) {
+      if (val) {
+        this.proceedLogin()
+      }
+    },
+  },
+
+  methods: {
+    proceedLogin() {
+      this.$toast({
+        title: 'Logged In Successfully',
+        status: 'success',
+        duration: 4000,
+      })
+      setTimeout(() => this.$router.push('/forum'), 1500)
+    },
+    async getToken() {
+      this.$store.dispatch('auth/socialLoginCallback', {
+        provider: 'google',
+        params: this.$route.query,
+      })
+    },
+  },
+
+  mounted() {
     this.getToken()
-  }
+  },
 }
 </script>
 <style lang="postcss" scoped></style>
